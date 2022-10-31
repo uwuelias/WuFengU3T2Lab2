@@ -6,6 +6,7 @@ public class Bill {
     /* Constructor
         PRECONDITION: costOfMeal >= 0, customers > 0
      */
+
     public Bill(double costOfMeal, int customers) {
         totalCost = costOfMeal;
         this.customers = customers;
@@ -27,30 +28,33 @@ public class Bill {
      - add 20% to totalCost if the person is dining alone (1 guest)
 
    */
+
     public boolean addTip() {
-        if (tipAdded = false) {
-            if (customers == 1) {
-                totalCost = 1.2 * totalCost;
+        if (tipAdded) {
+            return false;
+        }
+        else {
+            if (customers >= 8) {
+                totalCost *= 1.30;
             }
-            else if (customers >= 2 && customers < 4) {
-                totalCost = 1.25 * totalCost;
+            else if (customers >= 4) {
+                totalCost *= 1.27;
             }
-            else if (customers >= 4 && customers < 8) {
-                totalCost = 1.27 * totalCost;
-            }
-            else if (customers >= 8) {
-                totalCost = 1.30 * totalCost;
+            else if (customers >= 2) {
+                totalCost *= 1.25;
             }
             else {
-                return true;
+                totalCost *= 1.2;
             }
+            tipAdded = true;
+            return true;
         }
-        return false;
     }
 
 
 
         /* Returns String with info about the bill */
+
         public String billInfo () {
             // Round the bill to two decimal places
             double roundedBill = Math.round(totalCost * 100.0) / 100.0;

@@ -22,21 +22,32 @@ public class CatHouse {
             cat2.introduce();
             cat1.introduce();
         }
-        else if ()
+        else if (cat1.getName().compareTo(cat2.getName()) < 0) {
+            cat1.introduce();
+            cat2.introduce();
         }
+        else if (cat1.getName().compareTo(cat2.getName()) > 0) {
+            cat2.introduce();
+            cat1.introduce();
+        }
+        else {
+            cat1.introduce();
+            cat2.introduce();
+        }
+
+    }
     // IMPLEMENT this method!
     // this method causes each cat to speak by printing
     // each Cat's returned "speak()" string to the console
     public void catNoise() {
-        /* implement me! */
+        System.out.println(cat1.speak() + "\n" + cat2.speak());
     }
 
     // MODIFY this so that it returns a string with each Cat's AGE next to its name
     // e.g. Cat 1's Name: Petunia, Age: 3
     public String houseInfo() {
-        String str = "Welcome to " + owner + "'s Cat House!\n";
-        str += "Cat 1's Name: " + cat1.getName() + "\n";
-        str += "Cat 2's Name: " + cat2.getName();
-        return str;
+        return "Welcome to " + owner + "'s Cat House!\n" +
+        "Cat 1's Name: " + cat1.getName() + ", Age: " + cat1.getAge() + "\n" +
+        "Cat 2's Name: " + cat2.getName() + ", Age: " + cat2.getAge();
     }
 }

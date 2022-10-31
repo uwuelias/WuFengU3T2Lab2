@@ -19,11 +19,10 @@ public class Main {
             if (num % 7 == 0) {
                 System.out.println("Divisible by 7!");
             }
-            if ((num % 7 == 0 || num % 5 == 0) == false ) {
+            if ((num % 7 == 0 || num % 5 == 0) == false) {
                 System.out.println("Not divisible by 5 or 7");
             }
-        }
-        else {
+        } else {
             if (num <= 100) {
                 System.out.println("Small even number");
             }
